@@ -2,10 +2,10 @@ class ProfanityChecker:
     def __init__(self):
         self.words = ["fuck", "ass", "stupid"]
 
-    def checkWord(self, word: str):
+    def check_word(self, word: str):
         return bool(word in self.words)
 
-    def checkMessage(self, message: str):
+    def check_message(self, message: str):
         """
         Function to check if a message has profane words
         :param message: Message String
@@ -16,7 +16,7 @@ class ProfanityChecker:
                 return True
         return False
 
-    def reportWord(self, word):
+    def report_word(self, word):
         """
         function to add profane words.
         :return: True once added else False
@@ -25,5 +25,5 @@ class ProfanityChecker:
             self.words.append(word)
             return True
         except Exception:
-            print("Couldnt add word: {}".format(word))
+            print("Couldn't add word: {}".format(word))
         return False

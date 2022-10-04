@@ -6,7 +6,7 @@ class BullyChecker:
         #ToDo Add preprocessing
         return msg
 
-    def checkMessage(self, msg: str):
+    def check_message(self, msg: str):
         """
         Function to check if a message has profane words
         :param msg: Message String
