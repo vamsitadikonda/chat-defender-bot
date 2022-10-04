@@ -3,7 +3,7 @@ import discord
 from dotenv import load_dotenv
 from checkers.profanity import ProfanityChecker
 from checkers.apology import ApologyChecker
-from utils.msg import cleanMessage, getMsgTemplate
+from utils.msg import clean_message, get_msg_template
 
 load_dotenv("bot.env")
 token = os.getenv("token")
@@ -30,15 +30,15 @@ async def on_message(message):
     aid = message.author.id
     if author == client.user:
         return
-    msg_content = cleanMessage(str(message.content))
+    msg_content = clean_message(str(message.content))
     if msg_content.find('hello') != -1:
         await message.channel.send("Hi there!")
     # check for profanity
-    if pc.checkMessage(msg_content):
+    if pc.check_message(msg_content):
         await message.delete()
         # checking if the user has a first time offense
         warning = ac.check_user(aid, "profane")
-        await message.channel.send(getMsgTemplate(aid, "profane", warning))
+        await message.channel.send(get_msg_template(aid, "profane", warning))
 
 
 ac = ApologyChecker()

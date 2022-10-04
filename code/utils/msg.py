@@ -1,7 +1,7 @@
 import re
 
 
-def cleanMessage(msg):
+def clean_message(msg):
     """
     Function to clean the input discord message and return a lowercase ascii string
     :return: processed string
@@ -16,7 +16,7 @@ def cleanMessage(msg):
     return ret.lower()
 
 
-def getMsgTemplate(user_id, reason="profane", warning=False):
+def get_msg_template(user_id, reason="profane", warning=False):
     """
     Utility Function to generate output Message Template
     :return: message template
