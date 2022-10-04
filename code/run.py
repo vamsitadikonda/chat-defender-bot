@@ -1,6 +1,8 @@
 import os
 import discord
 from dotenv import load_dotenv
+from getpass import getpass
+import mysql.connector
 
 load_dotenv("bot.env")
 token = os.getenv("token")
@@ -23,6 +25,18 @@ async def on_message(message):
 
     if message.content.find('hello')!=-1:
         await message.channel.send("Hi there!")
+        connectSql()
 
 
+def connectSql():
+    mydb = mysql.connector.connect(
+        host="mysql_db",
+        port="3306",
+        user="root",
+        password="pass"
+    )
+
+    mycursor = mydb.cursor()
+    print("creating data base")
+    mycursor.execute("CREATE DATABASE test4")
 client.run(token)
