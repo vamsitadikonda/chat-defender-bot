@@ -1,6 +1,6 @@
 class ProfanityChecker:
     def __init__(self):
-        self.words = ["Fuck", "Ass", "Stupid"]
+        self.words = ["fuck", "ass", "stupid"]
 
     def checkWord(self, word: str):
         return bool(word in self.words)
