@@ -13,7 +13,7 @@ class ApologyChecker(Checker):
         :param warning_type:
         :return:
         """
-        pass
+        return True
 
     def add_warning(self, user_id, warning_type):
         pass
