@@ -1,4 +1,7 @@
-class ProfanityChecker:
+from code.checkers import Checker
+
+
+class ProfanityChecker(Checker):
     def __init__(self):
         self.words = ["fuck", "ass", "stupid"]
 

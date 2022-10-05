@@ -1,7 +1,8 @@
 from code.utils.db import DbConnector
+from code.checkers import Checker
 
 
-class ApologyChecker:
+class ApologyChecker(Checker):
     def __init__(self):
         self.connector = DbConnector()
 
@@ -14,8 +15,11 @@ class ApologyChecker:
         """
         pass
 
-    def add_warning(self,user_id, warning_type):
+    def add_warning(self, user_id, warning_type):
         pass
 
-    def add_user(self,user):
+    def add_user(self, user_id):
+        pass
+
+    def add_apology(self,user_id):
         pass
