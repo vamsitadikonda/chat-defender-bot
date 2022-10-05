@@ -1,47 +1,53 @@
+import os
+import time
+
 import mysql.connector
 
 
 class DbConnector:
     def __init__(self):
-        self.host = "localhost"
-        self.user = "root"
-        self.password = "pass"
-        self.DB = "DISCORD"
         self.connector = None
 
-        ##TODO Connect to database, insertData() and close connection
+        mycursor = mydb.cursor()
+        print("creating data base")
+        mycursor.execute("CREATE DATABASE test4")
+
+        # TODO Connect to database, insertData() and close connection
 
     def connect(self):
         """
         Function to Open database connection
         :return:
         """
-        try:
-            self.connector = mysql.connector.connect(host=self.host, port=self.port, user=self.user,
-                                                     password=self.password, database=self.DB)
-        except Exception as error:
-            print("Failed to connect to the database: {}".format(error))
-        finally:
-            if self.connection.is_connected():
-                self.close()
+        retry = 10
+        while retry > 0 and self.connector is None:
+            try:
+                self.connector = mysql.connector.connect(
+                    host=os.getenv("DB_HOST"), port=os.getenv("DB_PORT"),
+                    user=os.getenv("DB_USER"), password=os.getenv("DB_PASSWORD"))
 
-    def insertData(self):
+            except Exception as error:
+                print("Failed to connect to the database: {}".format(error))
+            finally:
+                time.sleep(20)
+                retry -= 1
+
+    def create_tables(self):
         """
         Function to create and insert tables in the database
         :return:
         """
         try:
             cursor = self.connector.cursor()
-
+            cursor.execute("CREATE DATABASE discorddb")
+            print("Created database discorddb")
             # Create tables and insert data(if any)
-
+            print("Inserted records in the database")
             self.connector.commit()
         except Exception as error:
             print("Failed to get record from MySQL table: {}".format(error))
         finally:
-            if self.connection.is_connected():
-                cursor.close()
-                self.close()
+            cursor.close()
             return True
 
     def executequery(self, query, cond):
@@ -57,9 +63,7 @@ class DbConnector:
         except Exception as error:
             print("Failed to get record from MySQL table: {}".format(error))
         finally:
-            if self.connection.is_connected():
-                cursor.close()
-                self.close()
+            cursor.close()
             return data
 
     def read(self):
@@ -77,9 +81,7 @@ class DbConnector:
         except Exception as error:
             print("Failed to read data from MySQL table: {}".format(error))
         finally:
-            if self.connection.is_connected():
-                cursor.close()
-                self.close()
+            cursor.close()
 
     def close(self):
         """
@@ -87,7 +89,7 @@ class DbConnector:
         """
         try:
             if self.connection.is_connected():
-                self.close()
+                self.connector.close()
         except Exception as error:
             print("Failed to connect to the database: {}".format(error))
         return True
