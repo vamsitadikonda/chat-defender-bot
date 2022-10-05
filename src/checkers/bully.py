@@ -1,13 +1,17 @@
 from . import Checker
+import os
+import pickle
 
 
 class BullyChecker(Checker):
     def __init__(self):
+        self.use_gpu = bool(os.getenv("USE_GPU", False))
         self.model = None
+        self.load_model()
 
-    def pre_process(self, msg):
-        # ToDo Add preprocessing
-        return msg
+    def load_model(self):
+        filename = './data/toxic_model.sav'
+        self.model = pickle.load(open(filename, 'rb'))
 
     def check_message(self, msg: str):
         """
