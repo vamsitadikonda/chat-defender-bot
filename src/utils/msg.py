@@ -16,18 +16,18 @@ def clean_message(msg):
     return ret.lower()
 
 
-def get_msg_template(user_id, reason="profane", warning=False):
+def get_msg_template(user_id, reason, warning=False):
     """
     Utility Function to generate output Message Template
     :return: message template
     """
     reason_dict = {"profane": "using profane words"}
     ret = ""
+    reason_str = ",".join(reason) if isinstance(reason, list) else str(reason)
     if warning:
-        ret = """ Warning user:<@{0}> for {1}.\n Another attempt will result in a Ban!""".format(user_id,
-                                                                                                 reason_dict[reason])
+        ret = """ Warning user:<@{0}> for {1}.\n Another attempt will result in a Ban!""".format(user_id, reason_str)
     else:
-        ret = """ User:<@{0}> has been banned for {1}.""".format(user_id, reason_dict[reason])
+        ret = """ User:<@{0}> has been banned for {1}.""".format(user_id, reason_str)
     return ret
 
 
