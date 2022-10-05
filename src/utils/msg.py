@@ -21,7 +21,7 @@ def get_msg_template(user_id, reason, warning=False):
     Utility Function to generate output Message Template
     :return: message template
     """
-    reason_dict = {"profane": "using profane words"}
+    #reason_dict = {"profane": "using profane words"}
     ret = ""
     reason_str = ",".join(reason) if isinstance(reason, list) else str(reason)
     if warning:
