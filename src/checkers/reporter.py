@@ -1,4 +1,4 @@
-from code.checkers import Checker
+from . import Checker
 
 
 class ReportChecker(Checker):

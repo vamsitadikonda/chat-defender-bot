@@ -1,5 +1,5 @@
-from code.utils.db import DbConnector
-from code.checkers import Checker
+from . import Checker
+from ..utils.db import DbConnector
 
 
 class ApologyChecker(Checker):

@@ -11,7 +11,8 @@ class Checker:
     """
     An Abstract Class for all Checker Classes. It is inherited by all the Checker objects
     """
-    def check_message(self, msg:str):
+
+    def check_message(self, msg: str):
         """
         Function to parse the message and check for a trait in the message.
         :param msg:
