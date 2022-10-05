@@ -1,16 +1,26 @@
+import sys
+from pathlib import Path # if you haven't already done so
+file = Path(__file__).resolve()
+parent, root = file.parent, file.parents[1]
+sys.path.append(str(root))
+
+# Additionally remove the current file's directory from sys.path
+try:
+    sys.path.remove(str(parent))
+except ValueError: # Already removed
+    pass
 import os
 import discord
 from dotenv import load_dotenv
-from checkers.profanity import ProfanityChecker
-from checkers.apology import ApologyChecker
-from checkers.reporter import ReportChecker
-from utils.msg import clean_message, get_msg_template, get_help_message
+import src.checkers.profanity
+from src.checkers.apology import ApologyChecker
+from src.checkers.reporter import ReportChecker
+from src.utils.msg import clean_message, get_msg_template, get_help_message
 
 load_dotenv("bot.env")
 token = os.getenv("token")
 intents = discord.Intents.default()
 intents.message_content = True
-
 client = discord.Client(intents=intents)
 
 
@@ -58,6 +68,6 @@ async def on_message(message):
 
 
 ac = ApologyChecker()
-pc = ProfanityChecker()
+pc = src.checkers.profanity.ProfanityChecker()
 rc = ReportChecker()
 client.run(token)
