@@ -19,5 +19,13 @@ class BullyChecker(Checker):
         :param msg: Message String
         :return: Boolean
         """
-        pre_process_msg = self.pre_process(msg)
-        return self.model.predict(pre_process_msg)
+        predicts_dict = self.model.predict(msg)
+
+        def getThreats(d):
+            ret = []
+            for x in sorted([(predicts_dict[k], k) for k in predicts_dict]):
+                if x[0] >= 0.6:
+                    ret.append(x[1])
+            return ret
+
+        return getThreats(predicts_dict)
