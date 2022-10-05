@@ -1,8 +1,7 @@
 import re
-from .db import DbConnector
 
 
-def cleanMessage(msg):
+def clean_message(msg):
     """
     Function to clean the input discord message and return a lowercase ascii string
     :return: processed string
@@ -17,7 +16,7 @@ def cleanMessage(msg):
     return ret.lower()
 
 
-def getMsgTemplate(user_id, reason="profane", warning=False):
+def get_msg_template(user_id, reason="profane", warning=False):
     """
     Utility Function to generate output Message Template
     :return: message template
@@ -32,16 +31,12 @@ def getMsgTemplate(user_id, reason="profane", warning=False):
     return ret
 
 
-def checkOffenseCount(user_id, reason):
-    dbconnect = DbConnector()
-    sql_query = "SELECT offense_count FROM user_activity where user_id = %s"
-    dbconnect.connect()
-    result = dbconnect.executequery(sql_query, (user_id,))
-    if result == 1:
-        getMsgTemplate(user_id, reason, True)
-    else:
-        ##Ban User
-        sql_query = "DELETE FROM user where user_id = %s"
-        result = dbconnect.executequery(sql_query, (user_id,))
-        getMsgTemplate(user_id, reason, False)
-    return True
+def get_help_message():
+    """
+    Utility Function to generate help options
+    :return: message template
+    """
+    return """
+                Inorder to report a word as profane use the command:
+                !report profane <word>
+           """

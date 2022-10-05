@@ -6,4 +6,4 @@ COPY . .
 
 RUN python3 -m pip install -r requirements.txt
 
-CMD python -u ./code/run.py
+CMD python -u /app/src/run.py
