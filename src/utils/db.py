@@ -1,18 +1,11 @@
 import os
 import time
-
 import mysql.connector
 
 
 class DbConnector:
     def __init__(self):
         self.connector = None
-
-        mycursor = mydb.cursor()
-        print("creating data base")
-        mycursor.execute("CREATE DATABASE test4")
-
-        # TODO Connect to database, insertData() and close connection
 
     def connect(self):
         """
@@ -23,13 +16,13 @@ class DbConnector:
         while retry > 0 and self.connector is None:
             try:
                 self.connector = mysql.connector.connect(
-                    host=os.getenv("DB_HOST"), port=os.getenv("DB_PORT"),
+                    host=os.getenv("DB_HOST"), port=int(os.getenv("DB_PORT")),
                     user=os.getenv("DB_USER"), password=os.getenv("DB_PASSWORD"))
 
             except Exception as error:
                 print("Failed to connect to the database: {}".format(error))
             finally:
-                time.sleep(20)
+                time.sleep(5)
                 retry -= 1
 
     def create_tables(self):
@@ -42,6 +35,15 @@ class DbConnector:
             cursor.execute("CREATE DATABASE discorddb")
             print("Created database discorddb")
             # Create tables and insert data(if any)
+            cursor.execute("CREATE TABLE discorddb.pwords (server_name NVARCHAR(255), word NVARCHAR(255))")
+            cursor.execute(
+                "CREATE TABLE discorddb.user_activity (user_id NVARCHAR(255), offense_type NVARCHAR(255), offense_count INT DEFAULT 0, "
+                "apology_count INT DEFAULT 0)")
+            print("Created Tables for the database")
+            self.connector.commit()
+            print("Commited the changes")
+
+
             print("Inserted records in the database")
             self.connector.commit()
         except Exception as error:
