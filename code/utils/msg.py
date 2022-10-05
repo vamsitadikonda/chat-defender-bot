@@ -24,7 +24,19 @@ def get_msg_template(user_id, reason="profane", warning=False):
     reason_dict = {"profane": "using profane words"}
     ret = ""
     if warning:
-        ret = """ Warning user:<@{0}> for {1}.\n Another attempt will result in a Ban!""".format(user_id, reason_dict[reason])
+        ret = """ Warning user:<@{0}> for {1}.\n Another attempt will result in a Ban!""".format(user_id,
+                                                                                                 reason_dict[reason])
     else:
         ret = """ User:<@{0}> has been banned for {1}.""".format(user_id, reason_dict[reason])
     return ret
+
+
+def get_help_message():
+    """
+    Utility Function to generate help options
+    :return: message template
+    """
+    return """
+                Inorder to report a word as profane use the command:
+                !report profane <word>
+           """
