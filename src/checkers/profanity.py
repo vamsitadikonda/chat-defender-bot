@@ -4,10 +4,26 @@ import src.utils.db
 
 class ProfanityChecker(Checker):
     def __init__(self):
-        self.words = ["fuck", "ass", "stupid"]
+        self.words = []
         self.conn = src.utils.db.DbConnector()
         self.conn.connect()
         self.conn.create_tables()
+
+    def add_words(self):
+        try:
+            cursor = self.conn.connector.cursor()
+            sql_query = "SELECT word FROM discorddb.pwords"
+            cursor.execute(sql_query)
+            result = cursor.fetchall()
+            for record in result:
+                word = record[0]
+                if word not in self.words:
+                    self.words.append(word)
+
+        except Exception as error:
+            print("Failed to get record from MySQL table: {}".format(error))
+        finally:
+            cursor.close()
 
     def check_word(self, word: str):
         return bool(word in self.words)
@@ -23,14 +39,19 @@ class ProfanityChecker(Checker):
                 return True
         return False
 
-    def report_word(self, word):
+    def report_word(self, server, word):
         """
         function to add profane words.
         :return: True once added else False
         """
         try:
-            self.words.append(word)
+            cursor = self.conn.connector.cursor()
+            sql_query = "INSERT INTO discorddb.pwords (server_name, word) VALUES (%s,%s)"
+            val = (server, word)
+            cursor.execute(sql_query, val)
+            self.conn.connector.commit()
+        except Exception as error:
+            print("Failed to insert record from MySQL table: {}".format(error))
+        finally:
+            cursor.close()
             return True
-        except Exception:
-            print("Couldn't add word: {}".format(word))
-        return False
