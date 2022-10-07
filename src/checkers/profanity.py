@@ -8,7 +8,6 @@ class ProfanityChecker(Checker):
         self.conn = src.utils.db.DbConnector()
         self.conn.connect()
         self.conn.create_tables()
-        self.report_word("discord", "EFF U")
 
     def add_words(self):
         try:
