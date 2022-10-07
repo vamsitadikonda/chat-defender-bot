@@ -43,4 +43,3 @@ jobs:
         coverage run -m pytest
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v2
-    - name: Install build dependencies
