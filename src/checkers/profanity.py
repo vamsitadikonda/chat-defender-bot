@@ -10,6 +10,10 @@ class ProfanityChecker(Checker):
         self.conn.create_tables()
 
     def add_words(self):
+        """
+        Add all the words from the db to the hate words list
+        :return:
+        """
         try:
             cursor = self.conn.connector.cursor()
             sql_query = "SELECT word FROM discorddb.pwords"
@@ -26,6 +30,11 @@ class ProfanityChecker(Checker):
             cursor.close()
 
     def check_word(self, word: str):
+        """
+        Checks and returns True if the word is in the hate words list. Else returns False
+        :param word:
+        :return:
+        """
         return bool(word in self.words)
 
     def check_message(self, message: str):
