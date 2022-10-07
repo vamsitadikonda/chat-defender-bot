@@ -12,6 +12,7 @@ class ApologyChecker(Checker):
         """
         Function to check whether a user has any outstanding warnings
         """
+
         try:
             out = 0
             cursor = self.conn.connector.cursor()
