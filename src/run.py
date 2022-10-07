@@ -58,6 +58,9 @@ async def on_message(message):
         await message.channel.send(get_msg_template(aid, "profanity", warning))
         # Step2.2: Banning user if not a first-time offense
         # ToDo: Writing Ban logic
+        if not warning:
+            ac.add_warning(aid)
+
     # Step 3: Check for Bully & Toxic Traits
     traits = bc.check_message(msg_content)
     if len(traits) > 0:
@@ -67,6 +70,8 @@ async def on_message(message):
         await message.channel.send(get_msg_template(aid, traits, warning))
         # Step3.2: Banning user if not a first-time offense
         # ToDo: Writing Ban logic
+        if not warning:
+            ac.add_warning(aid)
 
     # Step 4: Check for Apology
     if ac.check_message(msg_content):
