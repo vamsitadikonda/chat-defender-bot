@@ -7,12 +7,18 @@ class ApologyChecker(Checker):
         self.conn = src.utils.db.DbConnector()
         self.conn.connect()
 
+    def check_message(self, message):
+        """
+        Just checks for Sorry message
+        :param message: message string
+        :return:True or False
+        """
+        return message.find("sorry") != -1
 
     def check_user_for_ban(self, user_id, server_name):
         """
         Function to check whether a user has any outstanding warnings
         """
-
         try:
             self.add_user(user_id, server_name)
             out = 0
@@ -25,7 +31,7 @@ class ApologyChecker(Checker):
             print("Failed to get record from MySQL table: {}".format(error))
         finally:
             cursor.close()
-            if out > 0:
+            if out > 1:
                 print("Offenses more than expected. Banning User")
                 self.ban_user(user_id, server_name, 1)
                 return True
@@ -39,7 +45,7 @@ class ApologyChecker(Checker):
             cursor = self.conn.connector.cursor()
             sql_query = "UPDATE discorddb.user_activity SET offense_count = offense_count+1 WHERE user_id = %s AND server_name = %s"
 
-            val = (user_id,server_name)
+            val = (user_id, server_name)
             cursor.execute(sql_query, val)
             self.conn.connector.commit()
         except Exception as error:
