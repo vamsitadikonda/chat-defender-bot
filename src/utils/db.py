@@ -41,11 +41,16 @@ class DbConnector:
             # Create tables and insert data(if any)
             cursor.execute("CREATE TABLE discorddb.pwords (server_name NVARCHAR(255), word NVARCHAR(255))")
             cursor.execute(
-                "CREATE TABLE discorddb.user_activity (user_id NVARCHAR(255), offense_type NVARCHAR(255), offense_count INT DEFAULT 0, "
-                "apology_count INT DEFAULT 0)")
+                "CREATE TABLE discorddb.user_activity (user_id NVARCHAR(255), server_name NVARCHAR(255), offense_count INT DEFAULT 0, "
+                "apology_count INT DEFAULT 0, is_banned TINYINT DEFAULT 0)")
             print("Created Tables for the database")
             self.connector.commit()
             print("Commited the changes")
+
+
+            print("Inserted records in the database")
+            self.connector.commit()
+
         except Exception as error:
             print("Failed to get record from MySQL table: {}".format(error))
         finally:
