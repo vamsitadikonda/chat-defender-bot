@@ -6,6 +6,7 @@ from tests.testutils import *
 def setup_module(module):
     from dotenv import load_dotenv
     load_dotenv("../bot.env")
+    assert True
 
 
 class TestDbConnector:
@@ -22,6 +23,7 @@ class TestDbConnector:
             db = DbConnector()
             db.connect()
             db.create_tables()
+        assert True
 
     def test_executequery(self):
         with mock.patch("mysql.connector.connect") as mc:
@@ -29,6 +31,7 @@ class TestDbConnector:
             db = DbConnector()
             db.connect()
             db.executequery("mock_query", "mock_cond")
+        assert True
 
     def test_close(self):
         with mock.patch("mysql.connector.connect") as mc:
@@ -36,3 +39,4 @@ class TestDbConnector:
             db = DbConnector()
             db.connect()
             db.close()
+        assert True
