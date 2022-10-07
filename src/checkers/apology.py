@@ -7,7 +7,6 @@ class ApologyChecker(Checker):
         self.conn = src.utils.db.DbConnector()
         self.conn.connect()
 
-
     def check_user(self, user_id, server_name):
         """
         Function to check whether a user has any outstanding warnings
@@ -37,7 +36,7 @@ class ApologyChecker(Checker):
             cursor = self.conn.connector.cursor()
             sql_query = "UPDATE discorddb.user_activity SET offense_count = offense_count+1 WHERE user_id = %s AND server_name = %s"
 
-            val = (user_id,server_name)
+            val = (user_id, server_name)
             cursor.execute(sql_query, val)
             self.conn.connector.commit()
         except Exception as error:

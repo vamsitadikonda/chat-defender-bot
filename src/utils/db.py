@@ -4,12 +4,16 @@ import mysql.connector
 
 
 class DbConnector:
+    """
+    An Object used to connect to a Database and perform necessary functions like creating tables, reading and writing
+    to the database.
+    """
     def __init__(self):
         self.connector = None
 
     def connect(self):
         """
-        Function to Open database connection
+        Function to Open a database connection
         :return:
         """
         retry = 10
@@ -20,7 +24,7 @@ class DbConnector:
                     user=os.getenv("DB_USER"), password=os.getenv("DB_PASSWORD"))
 
             except Exception as error:
-                print("Failed to connect to the database: {}".format(error))
+                print("Failed to connect to the database: {} retry count:{}".format(error,retry))
             finally:
                 time.sleep(5)
                 retry -= 1
@@ -42,10 +46,6 @@ class DbConnector:
             print("Created Tables for the database")
             self.connector.commit()
             print("Commited the changes")
-
-
-            print("Inserted records in the database")
-            self.connector.commit()
         except Exception as error:
             print("Failed to get record from MySQL table: {}".format(error))
         finally:
@@ -68,29 +68,12 @@ class DbConnector:
             cursor.close()
             return data
 
-    def read(self):
-        """
-        Function to read version of the Database
-        :return:
-        """
-        try:
-            cursor = self.connector.cursor()
-            # execute SQL query using execute() method.
-            cursor.execute("SELECT VERSION()")
-            # Fetch a single row using fetchone() method.
-            data = cursor.fetchone()
-            print("Database version : %s " % data)
-        except Exception as error:
-            print("Failed to read data from MySQL table: {}".format(error))
-        finally:
-            cursor.close()
-
     def close(self):
         """
             disconnect from server
         """
         try:
-            if self.connection.is_connected():
+            if self.connector.is_connected():
                 self.connector.close()
         except Exception as error:
             print("Failed to connect to the database: {}".format(error))
