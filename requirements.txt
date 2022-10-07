@@ -1,4 +1,6 @@
 discord.py
-python-dotenv
-mysql-connector-python
+python-dotenv~=0.21.0
+mysql-connector-python~=8.0.30
 detoxify
+pytest
+mock~=4.0.3
