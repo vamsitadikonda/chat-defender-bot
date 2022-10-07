@@ -47,21 +47,28 @@ class ApologyChecker(Checker):
             return True
 
     def add_user(self, user_id, server_name):
+        """
+        Function to add user onto the database. If already banned, can't add user.
+        :param user_id:
+        :param server_name:
+        :return:
+        """
         try:
             cursor = self.conn.connector.cursor()
             sql_query = "SELECT is_banned FROM discorddb.user_activity WHERE user_id = %s AND server_name = %s"
             cursor.execute(sql_query, (user_id, server_name))
             result = cursor.fetchone()
             if not result:
+                print("User not present in the channel.")
                 sql_query = "INSERT INTO discorddb.user_activity (user_id, server_name) VALUES (%s,%s)"
                 val = (user_id, server_name)
                 cursor.execute(sql_query, val)
                 self.conn.connector.commit()
+                print("User is added into the channel")
             else:
                 if result[0] == 1:
                     print("User is banned from this server. Can't insert into the channel")
-                else:
-                    print("User is already present in the channel")
+
         except Exception as error:
             print("Failed to get record from MySQL table: {}".format(error))
         finally:
