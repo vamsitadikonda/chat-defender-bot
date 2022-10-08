@@ -20,8 +20,6 @@ from src.checkers.reporter import ReportChecker
 from src.utils.msg import clean_message, get_msg_template, get_help_message
 from src.checkers.bully import BullyChecker
 
-load_dotenv("bot.env")
-token = os.getenv("token")
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
@@ -84,9 +82,11 @@ async def on_message(message):
         if report_type == "word":
             rc.report_word()
 
-
-bc = BullyChecker()
-ac = ApologyChecker()
-pc = src.checkers.profanity.ProfanityChecker()
-rc = ReportChecker()
-client.run(token)
+if __name__ == "__main__":
+    load_dotenv("bot.env")
+    token = os.getenv("token")
+    bc = BullyChecker()
+    ac = ApologyChecker()
+    pc = src.checkers.profanity.ProfanityChecker()
+    rc = ReportChecker()
+    client.run(token)
