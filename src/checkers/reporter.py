@@ -1,7 +1,15 @@
 from . import Checker
+import src.utils.db
 
 
 class ReportChecker(Checker):
+    def __init__(self):
+        self.words = []
+        self.conn = src.utils.db.DbConnector()
+
+    def start(self):
+        self.conn.connect()
+
     def check_message(self, msg:str):
         return msg.startswith('!report')
 
