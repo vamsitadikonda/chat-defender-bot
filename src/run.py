@@ -51,24 +51,24 @@ async def on_message(message):
         await message.reply(get_help_message())
     # Step 2: Check for profanity
     if pc.check_message(channel_name, msg_content):
-        #await message.delete()
         # Step2.1 : Checking if the user has a first time offense
         warning = ac.check_user_for_warning(aid, channel_name)
         await message.channel.send(get_msg_template(aid, "profanity", warning))
         # Step2.2: Banning user if not a first-time offense
-        # ToDo: Writing Ban logic
         ac.add_warning(aid, channel_name)
+        if not warning:
+            await message.author.ban()
 
     # Step 3: Check for Bully & Toxic Traits
     traits = bc.check_message(msg_content)
     if len(traits) > 0:
-        #await message.delete()
         # Step3.1 : Checking if the user has a first time offense
         warning = ac.check_user_for_warning(aid, channel_name)
         await message.channel.send(get_msg_template(aid, traits, warning))
         # Step3.2: Banning user if not a first-time offense
-        # ToDo: Writing Ban logic
         ac.add_warning(aid, channel_name)
+        if not warning:
+            await message.author.ban()
 
     # Step 4: Check for Apology
     if ac.check_message(msg_content):
@@ -80,7 +80,7 @@ async def on_message(message):
         report_type, report_token = rc.parse_message(msg_content)
         if report_type == "word":
             if pc.add_words(channel_name, report_token):
-                await message.reply("<@{0}> has been added as a toxic word".format(report_token))
+                await message.reply("{0} has been added as a toxic word".format(report_token))
 
 if __name__ == "__main__":
     load_dotenv("bot.env")
