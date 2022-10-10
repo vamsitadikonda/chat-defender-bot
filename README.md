@@ -25,7 +25,13 @@ The chat bot built in this project evaluates the text data whenever a message is
 
 ## Video 
 
-## To-Do
+## Future Scope
+1) The in-build detoxify() function  being used in this project is highy sensitive, so a model can be developed to adapt better to real world conversations, using desired datasets.
+2) The message data that is being evaluated in the current model is text. This can be expanded to detect profanity through other input sources such as image, video, GIF, etc.
+3) The current model can be extended to detect spam users
+4) Pre-evaluate a message at sender before posting
+5) In the curent system, the bot has complete control over identifying profanity. As the model can be wrong at times, moderators can be introduced to check the model performance.
+6) Similar to the profanity checker that is being implemented, an apology checker can also be developed to better identify apologies.
 
 ## Tech Stack
 <img src="https://drive.google.com/uc?export=view&id=1jREu_hnGJ1gxv6hx2KMmM1zzHc8Yhvdh" alt="python" width="20" height="20"/> Python </br>

@@ -17,10 +17,16 @@ git clone git@github.com:vamsitadikonda/chat-defender-bot.git
 
 Build a Docker Image 
 ```
-docker build -t discord-bot .
+docker-compose build 
+```
+The above command would build 3 docker containers: 1 bot container, 1 database container and 1 daemon container. Inorder to start the discord bot
+we need to execute.
+```
+docker-compose up 
+```
+Inorder to bring the bot offline. We just need to bring down all the containers using
+```
+docker-compose down 
 ```
 
-You can run the bot by running the docker Image
-```
-docker run -d discord-bot
-```
+NOTE: The current toxify model uses a python library called detoxify. Detoxify Currently doesnt support Apple Silicon. Apple Silicon users are advised to run the application using the docker. 
