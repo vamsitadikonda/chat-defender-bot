@@ -72,13 +72,15 @@ async def on_message(message):
 
     # Step 4: Check for Apology
     if ac.check_message(msg_content):
-        ac.add_apology(aid, channel_name)
+        if ac.add_apology(aid, channel_name):
+            await message.reply("Hey <@{0}>, your apology is accepted by the bot".format(aid))
 
     # Step 5: Reporting a Profane Word
     if rc.check_message(msg_content):
         report_type, report_token = rc.parse_message(msg_content)
         if report_type == "word":
-            pc.add_words(channel_name, report_token)
+            if pc.add_words(channel_name, report_token):
+                await message.reply("<@{0}> has been added as a toxic word".format(report_token))
 
 if __name__ == "__main__":
     load_dotenv("bot.env")
