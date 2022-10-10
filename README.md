@@ -24,7 +24,7 @@ The chat bot built in this project evaluates the text data whenever a message is
 ## Implementation Steps
 Refer to INSTALL.md for detailed implementation steps
 ## Video Link
-https://drive.google.com/drive/u/0/folders/1hZjpxXfv9SsoaWyLT4pZCQIzVuRdxVxB
+https://drive.google.com/file/d/1LNjVeSV_3JWVeWB_Lr11941LlmDSVAg8/view?usp=sharing
 ## Future Scope
 1) The in-build detoxify() function  being used in this project is highy sensitive, so a model can be developed to adapt better to real world conversations, using desired datasets.
 2) The message data that is being evaluated in the current model is text. This can be expanded to detect profanity through other input sources such as image, video, GIF, etc.
