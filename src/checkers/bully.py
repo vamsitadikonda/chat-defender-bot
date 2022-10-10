@@ -6,6 +6,7 @@ import pickle
 class BullyChecker(Checker):
     def __init__(self):
         self.use_gpu = bool(os.getenv("USE_GPU", False))
+        self.sensitivity_threshold = 0.8
         self.model = None
         self.load_model()
 
@@ -24,7 +25,7 @@ class BullyChecker(Checker):
         def getThreats(d):
             ret = []
             for x in sorted([(predicts_dict[k], k) for k in predicts_dict]):
-                if x[0] >= 0.6:
+                if x[0] >= self.sensitivity_threshold:
                     ret.append(x[1])
             return ret
 
