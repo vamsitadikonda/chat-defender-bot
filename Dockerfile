@@ -1,9 +1,10 @@
 FROM python:3
 
-WORKDIR /app
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-
-RUN python3 -m pip install -r requirements.txt
 
 CMD python -u /app/src/run.py
