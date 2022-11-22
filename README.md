@@ -40,9 +40,21 @@ https://drive.google.com/file/d/1LNjVeSV_3JWVeWB_Lr11941LlmDSVAg8/view?usp=shari
 <img src="https://drive.google.com/uc?export=view&id=17444V8CAig18_kQ9gQHY1ZX1JXObFMoz" alt="Docker" width="20" height="20"/> Docker </br>
 Check out our code documentation [here](https://www.vamsitadikonda.com/chat-defender-bot) 
 
-## Group Info
-1) [Bharath Katabathuni](mailto:bkataba@ncsu.edu?) (bkataba)
-2) [Bapiraju Vamsi Tadikonda](mailto:btadiko@ncsu.edu?) (btadiko)
-3) [Vinay Kumar Reddy Perolla](mailto:vperoll@ncsu.edu?) (vperoll)
-4) [Sai Sree Nalluru](mailto:snallur@ncsu.edu?) (snallur)
-5) [Swimitha Reddy Buchannolla](mailto:sbuchan2@ncsu.edu?) (sbuchan2)
+:sparkles: Contributors
+---
+
+<table>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/srujanponnur">Srujan Ponnur</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/sumanth-somasundar">Sumanth Somasundar</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/vishnuchalla/">Vishnu Challa</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/svnsairam/">Sairam Sakhamuri</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/kanchan-rawat-793753a2/">Kanchan Rawat</a></td>
+  </tr>
+</table>
+
+:email: Support
+---
+
+For any queries and help, please reach out to us at: vchalla2@ncsu.edu
+
