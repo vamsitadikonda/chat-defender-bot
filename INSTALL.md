@@ -15,7 +15,7 @@ To clone the project from the repository:
 git clone git@github.com:vamsitadikonda/chat-defender-bot.git
 ```
 
-Build a Docker Image 
+After cloning, go to the folder in the terminal and build a Docker Image using below command
 ```
 docker-compose build 
 ```
