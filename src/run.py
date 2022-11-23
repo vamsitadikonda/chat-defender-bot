@@ -39,23 +39,23 @@ async def on_message(message):
     print(f'Message from {message.author}: {message.content}: {message.channel.name}')
     # Step 0: check if message is by Bot
     author = message.author
-    aid = message.author.id
+    author_id = message.author.id
     channel_name = message.channel.id
     if author == client.user:
         return
     # Step 1: Pre-process message
     msg_content = clean_message(str(message.content))
     if msg_content.find('hello') != -1:
-        await message.reply("Hey <@{0}> how's it going?".format(aid))
+        await message.reply("Hey <@{0}> how's it going?".format(author_id))
     if msg_content.find('help') != -1:
         await message.reply(get_help_message())
     # Step 2: Check for profanity
     if pc.check_message(channel_name, msg_content):
         # Step2.1 : Checking if the user has a first time offense
-        warning = ac.check_user_for_warning(aid, channel_name)
-        await message.channel.send(get_msg_template(aid, "profanity", warning))
+        warning = ac.check_user_for_warning(author_id, channel_name)
+        await message.channel.send(get_msg_template(author_id, "profanity", warning))
         # Step2.2: Banning user if not a first-time offense
-        ac.add_warning(aid, channel_name)
+        ac.add_warning(author_id, channel_name)
         if not warning:
             await message.author.ban()
 
@@ -63,17 +63,17 @@ async def on_message(message):
     traits = bc.check_message(msg_content)
     if len(traits) > 0:
         # Step3.1 : Checking if the user has a first time offense
-        warning = ac.check_user_for_warning(aid, channel_name)
-        await message.channel.send(get_msg_template(aid, traits, warning))
+        warning = ac.check_user_for_warning(author_id, channel_name)
+        await message.channel.send(get_msg_template(author_id, traits, warning))
         # Step3.2: Banning user if not a first-time offense
-        ac.add_warning(aid, channel_name)
+        ac.add_warning(author_id, channel_name)
         if not warning:
             await message.author.ban()
 
     # Step 4: Check for Apology
     if ac.check_message(msg_content):
-        if ac.add_apology(aid, channel_name):
-            await message.reply("Hey <@{0}>, your apology is accepted by the bot".format(aid))
+        if ac.add_apology(author_id, channel_name):
+            await message.reply("Hey <@{0}>, your apology is accepted by the bot".format(author_id))
 
     # Step 5: Reporting a Profane Word
     if rc.check_message(msg_content):
