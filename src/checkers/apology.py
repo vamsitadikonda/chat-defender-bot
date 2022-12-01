@@ -17,21 +17,21 @@ class ApologyChecker(Checker):
 
     def check_user_for_warning(self, user_id, server_name):
         """
-        Function to check whether a user has any outstanding warnings
+        Function to check whether a user has any outstanding warnings or not
         """
         try:
             self.add_user(user_id, server_name)
-            out = 0
+            out_count = 0
             cursor = self.conn.connector.cursor()
             sql_query = "SELECT offense_count - apology_count FROM discorddb.user_activity WHERE user_id = %s AND server_name = %s"
             cursor.execute(sql_query, (user_id, server_name))
             result = cursor.fetchone()
-            out = result[0]
+            out_count = result[0]
         except Exception as error:
             print("Failed to get record from MySQL table: {}".format(error))
         finally:
             cursor.close()
-            if out > 0:
+            if out_count > 0:
                 print("Offenses more than expected. Banning User")
                 self.ban_user(user_id, server_name, 1)
                 return False

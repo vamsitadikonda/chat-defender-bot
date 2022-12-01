@@ -27,6 +27,9 @@ client = discord.Client(intents=intents)
 
 @client.event
 async def on_ready():
+    """
+    This function describes whether a user has been connected to Discord
+    """
     print(f"{client.user} has connected to Discord!")
 
 
@@ -45,48 +48,48 @@ async def on_message(message):
         return
     # Step 1: Pre-process message
     msg_content = clean_message(str(message.content))
-    if msg_content.find('hello') != -1:
+    if msg_content.lower().find('hello') or msg_content.lower().find('hi') or msg_content.lower().find('hey') != -1:
         await message.reply("Hey <@{0}> how's it going?".format(author_id))
     if msg_content.find('help') != -1:
         await message.reply(get_help_message())
     # Step 2: Check for profanity
-    if pc.check_message(channel_name, msg_content):
+    if profanity_checker.check_message(channel_name, msg_content):
         # Step2.1 : Checking if the user has a first time offense
-        warning = ac.check_user_for_warning(author_id, channel_name)
+        warning = apology_checker.check_user_for_warning(author_id, channel_name)
         await message.channel.send(get_msg_template(author_id, "profanity", warning))
         # Step2.2: Banning user if not a first-time offense
-        ac.add_warning(author_id, channel_name)
+        apology_checker.add_warning(author_id, channel_name)
         if not warning:
             await message.author.ban()
 
     # Step 3: Check for Bully & Toxic Traits
-    traits = bc.check_message(msg_content)
+    traits = bully_checker.check_message(msg_content)
     if len(traits) > 0:
         # Step3.1 : Checking if the user has a first time offense
-        warning = ac.check_user_for_warning(author_id, channel_name)
+        warning = apology_checker.check_user_for_warning(author_id, channel_name)
         await message.channel.send(get_msg_template(author_id, traits, warning))
         # Step3.2: Banning user if not a first-time offense
-        ac.add_warning(author_id, channel_name)
+        apology_checker.add_warning(author_id, channel_name)
         if not warning:
             await message.author.ban()
 
     # Step 4: Check for Apology
-    if ac.check_message(msg_content):
-        if ac.add_apology(author_id, channel_name):
+    if apology_checker.check_message(msg_content):
+        if apology_checker.add_apology(author_id, channel_name):
             await message.reply("Hey <@{0}>, your apology is accepted by the bot".format(author_id))
 
     # Step 5: Reporting a Profane Word
-    if rc.check_message(msg_content):
+    if report_checker.check_message(msg_content):
         report_type, report_token = rc.parse_message(msg_content)
         if report_type == "word":
-            if pc.add_words(channel_name, report_token):
+            if profanity_checker.add_words(channel_name, report_token):
                 await message.reply("{0} has been added as a toxic word".format(report_token))
 
 if __name__ == "__main__":
     load_dotenv("bot.env")
     token = os.getenv("token")
-    bc = BullyChecker()
-    ac = ApologyChecker()
-    pc = src.checkers.profanity.ProfanityChecker()
-    rc = ReportChecker()
+    bully_checker = BullyChecker()
+    apology_checker = ApologyChecker()
+    profanity_checker = src.checkers.profanity.ProfanityChecker()
+    report_checker = ReportChecker()
     client.run(token)
