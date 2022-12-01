@@ -6,11 +6,15 @@ import pickle
 class BullyChecker(Checker):
     def __init__(self):
         self.use_gpu = bool(os.getenv("USE_GPU", False))
+        # model threshold
         self.sensitivity_threshold = 0.8
         self.model = None
         self.load_model()
 
     def load_model(self):
+        """
+        Function to load pickle file for ML model
+        """
         filename = './data/toxic_model.sav'
         self.model = pickle.load(open(filename, 'rb'))
 
@@ -22,6 +26,9 @@ class BullyChecker(Checker):
         """
         predicts_dict = self.model.predict(msg)
 
+        """
+        Function to add profane words to a list and return the same
+        """
         def getThreats(d):
             ret = []
             for x in sorted([(predicts_dict[k], k) for k in predicts_dict]):

@@ -48,7 +48,7 @@ async def on_message(message):
         return
     # Step 1: Pre-process message
     msg_content = clean_message(str(message.content))
-    if msg_content.lower().find('hello') or msg_content.lower().find('hi') or msg_content.lower().find('hey') != -1:
+    if msg_content.find('hello') or msg_content.find('hi') or msg_content.find('hey') != -1:
         await message.reply("Hey <@{0}> how's it going?".format(author_id))
     if msg_content.find('help') != -1:
         await message.reply(get_help_message())
