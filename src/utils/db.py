@@ -5,7 +5,7 @@ import mysql.connector
 
 class DbConnector:
     """
-    An Object used to connect to a Database and perform necessary functions like creating tables, reading and writing
+    An object used to connect to a database and perform necessary functions like creating tables, reading and writing
     to the database.
     """
     def __init__(self):
@@ -26,7 +26,7 @@ class DbConnector:
             except Exception as error:
                 print("Failed to connect to the database: {} retry count:{}".format(error,retry_count))
             finally:
-                time.sleep(5)
+                time.sleep(10)
                 retry_count -= 1
 
     def create_tables(self):
