@@ -80,7 +80,7 @@ async def on_message(message):
 
     # Step 5: Reporting a Profane Word
     if report_checker.check_message(msg_content):
-        report_type, report_token = rc.parse_message(msg_content)
+        report_type, report_token = report_checker.parse_message(msg_content)
         if report_type == "word":
             if profanity_checker.add_words(channel_name, report_token):
                 await message.reply("{0} has been added as a toxic word".format(report_token))
