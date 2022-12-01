@@ -16,18 +16,18 @@ class DbConnector:
         Function to Open a database connection
         :return:
         """
-        retry = 10
-        while retry > 0 and self.connector is None:
+        retry_count = 10
+        while retry_count > 0 and self.connector is None:
             try:
                 self.connector = mysql.connector.connect(
                     host=os.getenv("DB_HOST"), port=int(os.getenv("DB_PORT")),
                     user=os.getenv("DB_USER"), password=os.getenv("DB_PASSWORD"))
 
             except Exception as error:
-                print("Failed to connect to the database: {} retry count:{}".format(error,retry))
+                print("Failed to connect to the database: {} retry count:{}".format(error,retry_count))
             finally:
                 time.sleep(5)
-                retry -= 1
+                retry_count -= 1
 
     def create_tables(self):
         """
@@ -43,9 +43,9 @@ class DbConnector:
             cursor.execute(
                 "CREATE TABLE discorddb.user_activity (user_id NVARCHAR(255), server_name NVARCHAR(255), offense_count INT DEFAULT 0, "
                 "apology_count INT DEFAULT 0, is_banned TINYINT DEFAULT 0)")
-            print("Created Tables for the database")
+            print("Created tables for the database")
             self.connector.commit()
-            print("Commited the changes")
+            print("Commited the db changes")
 
 
             print("Inserted records in the database")
