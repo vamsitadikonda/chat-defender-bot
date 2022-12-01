@@ -18,7 +18,7 @@ def clean_message(msg):
 
 def get_msg_template(user_id, reason, warning=False):
     """
-    Utility Function to generate output message emplate
+    Utility Function to generate output message template
     :return: message template
     """
     #reason_dict = {"profane": "using profane words"}

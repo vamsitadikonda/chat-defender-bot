@@ -13,7 +13,7 @@ class DbConnector:
 
     def connect(self):
         """
-        Function to Open a database connection
+        Function to open a database connection
         :return:
         """
         retry_count = 10
@@ -59,7 +59,7 @@ class DbConnector:
 
     def executequery(self, query, cond):
         """
-        Function to get data from query in the Database
+        Function to get data from query in the database
         :return:
         """
         try:
@@ -75,7 +75,7 @@ class DbConnector:
 
     def close(self):
         """
-            disconnect from server
+            Disconnect from database server
         """
         try:
             if self.connector.is_connected():
