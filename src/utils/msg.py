@@ -18,14 +18,14 @@ def clean_message(msg):
 
 def get_msg_template(user_id, reason, warning=False):
     """
-    Utility Function to generate output Message Template
+    Utility Function to generate output message emplate
     :return: message template
     """
     #reason_dict = {"profane": "using profane words"}
     ret = ""
     reason_str = ",".join(reason) if isinstance(reason, list) else str(reason)
     if warning:
-        ret = """ Warning user:<@{0}> for {1}.\n Another attempt will result in a Ban!""".format(user_id, reason_str)
+        ret = """ Warning user:<@{0}> for {1}.\n Another attempt will result in a ban!""".format(user_id, reason_str)
     else:
         ret = """ User:<@{0}> has been banned for {1}.""".format(user_id, reason_str)
     return ret
@@ -37,6 +37,6 @@ def get_help_message():
     :return: message template
     """
     return """
-                Inorder to report a word as profane use the command:
+                Inorder to report a word as profane use the below command:
                 !report profane <word>
            """
