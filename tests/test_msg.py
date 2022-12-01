@@ -14,8 +14,8 @@ class TestMessageFunctions:
 
     def test_get_msg_template(self):
         assert get_msg_template("user_id", "reason",
-                                warning=True) == """ Warning user:<@user_id> for reason.\n Another attempt will result in a Ban!"""
-        assert get_msg_template("user_id", ["reason1", "reason2"], warning=True) == """ Warning user:<@user_id> for reason1,reason2.\n Another attempt will result in a Ban!"""
+                                warning=True) == """ Warning user:<@user_id> for reason.\n Another attempt will result in a ban!"""
+        assert get_msg_template("user_id", ["reason1", "reason2"], warning=True) == """ Warning user:<@user_id> for reason1,reason2.\n Another attempt will result in a ban!"""
 
     def test_get_help_message(self):
         assert isinstance(get_help_message(), str)
