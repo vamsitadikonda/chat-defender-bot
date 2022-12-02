@@ -7,7 +7,7 @@ class ProfanityChecker(Checker):
     def __init__(self):
         self.words = {}
         self.conn = src.utils.db.DbConnector()
-        self.query = "SELECT word FROM discorddb.pwords"
+        self.query = "SELECT word FROM discorddb.pwords".encode('utf-8')
         self.redis = src.utils.redis.Redis()
         self.conn.connect()
         self.conn.create_tables()
@@ -44,15 +44,15 @@ class ProfanityChecker(Checker):
         try:
             cursor = self.conn.connector.cursor()
             sql_query = "SELECT word FROM discorddb.pwords WHERE server_name = %s"
-            cursor.execute(sql_query, (server))
+            cursor.execute(sql_query, (server,))
             result = cursor.fetchall()
             print(f"The query result is: {result}")
-            return set(result)
         except Exception as error:
             print("Failed to fetch records from the db: {}".format(error))
         finally:
             cursor.close()
-            return True
+            return set(result)
+
 
     def check_word(self, word: str):
         """
@@ -60,7 +60,7 @@ class ProfanityChecker(Checker):
         :param word:
         :return:
         """
-        self.redis.check_word(self.query, word)
+        return self.redis.check_word(self.query, word)
 
         # if server in self.words:
         #     return bool(word in self.words[server])
@@ -74,6 +74,7 @@ class ProfanityChecker(Checker):
         """
         if not self.redis.check_key(self.query):
             data = self.fetch_words(server)
+            print(f"The Cache has expired adding {data} into cache with a TTL")
             self.redis.add_entry(self.query, data)
 
         for word in message.split():
