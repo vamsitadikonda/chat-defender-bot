@@ -2,11 +2,11 @@
 |-----|---|---------|
 |Bonus: Xfold improvement	| | | 
 |Docs: what: point descriptions of each class/function (in isolation)	| | | |
-|Use of style checkers| | |
-|Use of code formatters| | |
-|Use of syntax checkers| | |
-|Use of code coverage| | | |
-|Other automated analysis tools| | |
+|Use of style checkers |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
+|Use of code formatters. |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
+|Use of syntax checkers. |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
+|Use of code coverage |3|Badge in [README.md](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/README.md)|
+|Other automated analysis tools||config files in GH|
 |Workload is spread over the whole team (one team member is often Xtimes more productive than the others... 
 but nevertheless, here is a track record that everyone is contributing a lot)|||
 |Number of commits|3|[GitHub Insights](https://github.com/vishnuchalla/chat-defender-bot/contributors)|
