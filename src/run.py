@@ -1,6 +1,7 @@
 import os
 import sys
 from pathlib import Path  # if you haven't already done so
+
 import discord
 import src.checkers.profanity
 from dotenv import load_dotenv
