@@ -38,5 +38,7 @@ def get_help_message():
     """
     return """
                 Inorder to report a word as profane use the command:
-                !report profane <word>
+                !report word <word>
+                Inorder to apologize
+                !apology <message>
            """

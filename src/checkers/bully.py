@@ -6,6 +6,7 @@ import pickle
 class BullyChecker(Checker):
     def __init__(self):
         self.use_gpu = bool(os.getenv("USE_GPU", False))
+        print(f"The use gpu flag is: {self.use_gpu}")
         self.sensitivity_threshold = 0.8
         self.model = None
         self.load_model()
