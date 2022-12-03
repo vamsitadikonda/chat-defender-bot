@@ -2,6 +2,11 @@
 |-----|---|---------|
 |Bonus: Xfold improvement	| | | 
 |Docs: what: point descriptions of each class/function (in isolation)	| | | |
+|Use of style checkers| | |
+|Use of code formatters| | |
+|Use of syntax checkers| | |
+|Use of code coverage| | | |
+|Other automated analysis tools| | |
 |Workload is spread over the whole team (one team member is often Xtimes more productive than the others... 
 but nevertheless, here is a track record that everyone is contributing a lot)|||
 |Number of commits|3|[GitHub Insights](https://github.com/vamsitadikonda/chat-defender-bot/contributors)|
@@ -15,11 +20,6 @@ but nevertheless, here is a track record that everyone is contributing a lot)|||
 |Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing|
 |Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.|
 |Use of version control tools|3|Github|
-|Use of style checkers |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
-|Use of code formatters. |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
-|Use of syntax checkers. |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
-|Use of code coverage |3|Badge in [README.md](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/README.md)|
-|Other automated analysis tools||config files in GH|
 |Test cases exist|3|[tests](https://github.com/vamsitadikonda/chat-defender-bot/tree/main/tests)|
 |Test cases are routinely executed|3|[travis](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.travis.yml)|
 |The files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up|3|[CONTRIBUTING.md](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/CONTRIBUTING.md)|
