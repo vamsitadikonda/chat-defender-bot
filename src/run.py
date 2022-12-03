@@ -42,7 +42,7 @@ async def on_message(message):
     # Step 0: check if message is by Bot
     author = message.author
     author_id = message.author.id
-    channel_name = message.channel.id  
+    channel_name = message.channel.id
     if author == client.user:
         return
     # Step 1: Pre-process message
@@ -70,7 +70,6 @@ async def on_message(message):
             apology_checker.add_warning(author_id, channel_name)
             if not warning:
                 await message.author.ban()
-
         # Step 4: Check for Bully & Toxic Traits
         elif len(traits) > 0:
             # Step3.1 : Checking if the user has a first time offense
@@ -80,12 +79,10 @@ async def on_message(message):
             apology_checker.add_warning(author_id, channel_name)
             if not warning:
                 await message.author.ban()
-
         # Step 5: Check for Apology only when there is no profanity usage or bulling found 
         elif apology_checker.check_message(msg_content):
             if apology_checker.add_apology(author_id, channel_name):
                 await message.reply("Hey <@{0}>, your apology is accepted by the bot".format(author_id))
-
 if __name__ == "__main__":
     load_dotenv("bot.env")
     token = os.getenv("token")
