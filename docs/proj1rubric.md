@@ -1,7 +1,7 @@
 |Notes|Score|evidence|
 |-----|---|---------|
-|Video1| |For people starting with 2020 or 2021 projects, 2min video of old functionality| 
-|Video2||For people starting with 2020 or 2021 projects, 2min video of new functionality, showing a significant delta from old. For everyone else, 2min video of all functionality.| 
+|Bonus: Xfold improvement	| | | 
+|Docs: what: point descriptions of each class/function (in isolation)	| | | |
 |Workload is spread over the whole team (one team member is often Xtimes more productive than the others... 
 but nevertheless, here is a track record that everyone is contributing a lot)|||
 |Number of commits|3|[GitHub Insights](https://github.com/vamsitadikonda/chat-defender-bot/contributors)|
