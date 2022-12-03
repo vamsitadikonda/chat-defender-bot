@@ -58,7 +58,7 @@ async def on_message(message):
         if report_type == "word":
             if profanity_checker.add_words(channel_name, report_token):
                 await message.reply("{0} has been added as a toxic word".format(report_token))
-    else: # check for profanity, bullying and apology if the user is not manually reporting any word
+    else:  # check for profanity, bullying and apology if the user is not manually reporting any word
         traits = bully_checker.check_message(msg_content)
         print("The traits are", traits)
         # Step 3: Check for profanity
@@ -79,7 +79,7 @@ async def on_message(message):
             apology_checker.add_warning(author_id, channel_name)
             if not warning:
                 await message.author.ban()
-        # Step 5: Check for Apology only when there is no profanity usage or bulling found 
+        # Step 5: Check for Apology only when there is no profanity usage or bulling found
         elif apology_checker.check_message(msg_content):
             if apology_checker.add_apology(author_id, channel_name):
                 await message.reply("Hey <@{0}>, your apology is accepted by the bot".format(author_id))
