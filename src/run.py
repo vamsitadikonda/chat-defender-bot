@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path  # if you haven't already done so
+import redis
 
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
@@ -43,47 +44,53 @@ async def on_message(message):
     # Step 0: check if message is by Bot
     author = message.author
     author_id = message.author.id
-    channel_name = message.channel.id
+    channel_name = message.channel.id  
     if author == client.user:
         return
     # Step 1: Pre-process message
+    print(f"The message is: {message.content}, The channel is: {channel_name}, The Author Info: {author}-{author_id}")
     msg_content = clean_message(str(message.content))
     if msg_content.find('hello') or msg_content.find('hi') or msg_content.find('hey') != -1:
         await message.reply("Hey <@{0}> how's it going?".format(author_id))
     if msg_content.find('help') != -1:
         await message.reply(get_help_message())
-    # Step 2: Check for profanity
-    if profanity_checker.check_message(channel_name, msg_content):
-        # Step2.1 : Checking if the user has a first time offense
-        warning = apology_checker.check_user_for_warning(author_id, channel_name)
-        await message.channel.send(get_msg_template(author_id, "profanity", warning))
-        # Step2.2: Banning user if not a first-time offense
-        apology_checker.add_warning(author_id, channel_name)
-        if not warning:
-            await message.author.ban()
-
-    # Step 3: Check for Bully & Toxic Traits
-    traits = bully_checker.check_message(msg_content)
-    if len(traits) > 0:
-        # Step3.1 : Checking if the user has a first time offense
-        warning = apology_checker.check_user_for_warning(author_id, channel_name)
-        await message.channel.send(get_msg_template(author_id, traits, warning))
-        # Step3.2: Banning user if not a first-time offense
-        apology_checker.add_warning(author_id, channel_name)
-        if not warning:
-            await message.author.ban()
-
-    # Step 4: Check for Apology
-    if apology_checker.check_message(msg_content):
-        if apology_checker.add_apology(author_id, channel_name):
-            await message.reply("Hey <@{0}>, your apology is accepted by the bot".format(author_id))
-
-    # Step 5: Reporting a Profane Word
-    if report_checker.check_message(msg_content):
-        report_type, report_token = report_checker.parse_message(msg_content)
+    
+    # Step 2: Reporting a Profane Word
+    if rc.check_message(msg_content):
+        report_type, report_token = rc.parse_message(msg_content)
         if report_type == "word":
             if profanity_checker.add_words(channel_name, report_token):
                 await message.reply("{0} has been added as a toxic word".format(report_token))
+    
+    else: # check for profanity, bullying and apology if the user is not manually reporting any word
+        traits = bc.check_message(msg_content)
+        print("The traits are", traits)
+        # Step 3: Check for profanity
+        if pc.check_message(channel_name, msg_content):
+            # Step2.1 : Checking if the user has a first time offense
+            warning = ac.check_user_for_warning(author_id, channel_name)
+            await message.channel.send(get_msg_template(author_id, "profanity", warning))
+            # Step2.2: Banning user if not a first-time offense
+            ac.add_warning(author_id, channel_name)
+            if not warning:
+                await message.author.ban()
+
+        # Step 4: Check for Bully & Toxic Traits
+        elif len(traits) > 0:
+            # Step3.1 : Checking if the user has a first time offense
+            warning = ac.check_user_for_warning(author_id, channel_name)
+            await message.channel.send(get_msg_template(author_id, traits, warning))
+            # Step3.2: Banning user if not a first-time offense
+            ac.add_warning(author_id, channel_name)
+            if not warning:
+                await message.author.ban()
+
+        # Step 5: Check for Apology only when there is no profanity usage or bulling found 
+        elif ac.check_message(msg_content):
+            if ac.add_apology(author_id, channel_name):
+                await message.reply("Hey <@{0}>, your apology is accepted by the bot".format(author_id))
+
+   
 
 if __name__ == "__main__":
     load_dotenv("bot.env")

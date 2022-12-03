@@ -1,25 +1,25 @@
 |Notes|Score|evidence|
 |-----|---|---------|
-|Video1| |For people starting with 2020 or 2021 projects, 2min video of old functionality| 
-|Video2||For people starting with 2020 or 2021 projects, 2min video of new functionality, showing a significant delta from old. For everyone else, 2min video of all functionality.| 
+|Bonus: Xfold improvement	| | | 
+|Docs: what: point descriptions of each class/function (in isolation)	| | | |
+|Use of style checkers |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
+|Use of code formatters. |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
+|Use of syntax checkers. |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
+|Use of code coverage |3|Badge in [README.md](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/README.md)|
+|Other automated analysis tools||config files in GH|
 |Workload is spread over the whole team (one team member is often Xtimes more productive than the others... 
 but nevertheless, here is a track record that everyone is contributing a lot)|||
-|Number of commits|3|[GitHub Insights](https://github.com/vamsitadikonda/chat-defender-bot/contributors)|
-|Number of commits: by different people|3|[GitHub Insights](https://github.com/vamsitadikonda/chat-defender-bot/contributors)|
-|Issues reports: there are **many**|3|[Issues Tab](https://github.com/vamsitadikonda/chat-defender-bot/issues?q=is%3Aopen+is%3Aissue)|
-|Issues are being closed|3|[Issues Tab](https://github.com/vamsitadikonda/chat-defender-bot/issues?q=is%3Aissue+is%3Aclosed)|
-|DOI badge: exists|3|In [README.md](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/README.md) [Zenodo](https://zenodo.org/record/7159312#.Y0OK6OzMK3I)|
+|Number of commits|3|[GitHub Insights](https://github.com/vishnuchalla/chat-defender-bot/contributors)|
+|Number of commits: by different people|3|[GitHub Insights](https://github.com/vishnuchalla/chat-defender-bot/contributors)|
+|Issues reports: there are **many**|3|[Issues Tab](https://github.com/vishnuchalla/chat-defender-bot/issues?q=is%3Aopen+is%3Aissue)|
+|Issues are being closed|3|[Issues Tab](https://github.com/vishnuchalla/chat-defender-bot/issues?q=is%3Aissue+is%3Aclosed)|
+|DOI badge: exists|3|In [README.md](https://github.com/vishnuchalla/chat-defender-bot/blob/main/README.md) [Zenodo](https://zenodo.org/record/7159312#.Y0OK6OzMK3I)|
 |Docs: doco generated, format not ugly ||[PDocs](https://www.vamsitadikonda.com/chat-defender-bot/)|
 |Docs: what: point descriptions of each class/function (in isolation) |
 |Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z||doc page entries|
 |Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing|
 |Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.|
 |Use of version control tools|3|Github|
-|Use of style checkers |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
-|Use of code formatters. |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
-|Use of syntax checkers. |3|Code Linting Integrated [GitHub Action](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
-|Use of code coverage |3|Badge in [README.md](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/README.md)|
-|Other automated analysis tools||config files in GH|
 |Test cases exist|3|[tests](https://github.com/vamsitadikonda/chat-defender-bot/tree/main/tests)|
 |Test cases are routinely executed|3|[travis](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/.travis.yml)|
 |The files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up|3|[CONTRIBUTING.md](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/CONTRIBUTING.md)|
