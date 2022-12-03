@@ -1,3 +1,4 @@
+#!/usr/bin/python
 class TestApologyChecker:
     def test_check_user(self):
         assert True
