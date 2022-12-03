@@ -52,14 +52,12 @@ async def on_message(message):
         await message.reply("Hey <@{0}> how's it going?".format(author_id))
     if msg_content.find('help') != -1:
         await message.reply(get_help_message())
-    
     # Step 2: Reporting a Profane Word
     if report_checker.check_message(msg_content):
         report_type, report_token = report_checker.parse_message(msg_content)
         if report_type == "word":
             if profanity_checker.add_words(channel_name, report_token):
                 await message.reply("{0} has been added as a toxic word".format(report_token))
-    
     else: # check for profanity, bullying and apology if the user is not manually reporting any word
         traits = bully_checker.check_message(msg_content)
         print("The traits are", traits)
@@ -87,8 +85,6 @@ async def on_message(message):
         elif apology_checker.check_message(msg_content):
             if apology_checker.add_apology(author_id, channel_name):
                 await message.reply("Hey <@{0}>, your apology is accepted by the bot".format(author_id))
-
-   
 
 if __name__ == "__main__":
     load_dotenv("bot.env")
