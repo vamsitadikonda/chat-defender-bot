@@ -9,11 +9,11 @@
 |Other automated analysis tools| | |
 |Workload is spread over the whole team (one team member is often Xtimes more productive than the others... 
 but nevertheless, here is a track record that everyone is contributing a lot)|||
-|Number of commits|3|[GitHub Insights](https://github.com/vamsitadikonda/chat-defender-bot/contributors)|
-|Number of commits: by different people|3|[GitHub Insights](https://github.com/vamsitadikonda/chat-defender-bot/contributors)|
-|Issues reports: there are **many**|3|[Issues Tab](https://github.com/vamsitadikonda/chat-defender-bot/issues?q=is%3Aopen+is%3Aissue)|
-|Issues are being closed|3|[Issues Tab](https://github.com/vamsitadikonda/chat-defender-bot/issues?q=is%3Aissue+is%3Aclosed)|
-|DOI badge: exists|3|In [README.md](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/README.md) [Zenodo](https://zenodo.org/record/7159312#.Y0OK6OzMK3I)|
+|Number of commits|3|[GitHub Insights](https://github.com/vishnuchalla/chat-defender-bot/contributors)|
+|Number of commits: by different people|3|[GitHub Insights](https://github.com/vishnuchalla/chat-defender-bot/contributors)|
+|Issues reports: there are **many**|3|[Issues Tab](https://github.com/vishnuchalla/chat-defender-bot/issues?q=is%3Aopen+is%3Aissue)|
+|Issues are being closed|3|[Issues Tab](https://github.com/vishnuchalla/chat-defender-bot/issues?q=is%3Aissue+is%3Aclosed)|
+|DOI badge: exists|3|In [README.md](https://github.com/vishnuchalla/chat-defender-bot/blob/main/README.md) [Zenodo](https://zenodo.org/record/7159312#.Y0OK6OzMK3I)|
 |Docs: doco generated, format not ugly ||[PDocs](https://www.vamsitadikonda.com/chat-defender-bot/)|
 |Docs: what: point descriptions of each class/function (in isolation) |
 |Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z||doc page entries|
