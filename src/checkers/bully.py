@@ -16,8 +16,8 @@ class BullyChecker(Checker):
         """
         Function to load pickle file for ML model
         """
-        filename = './data/toxic_model.sav'
-        self.model = pickle.load(open(filename, 'rb'))
+        filename = "./data/toxic_model.sav"
+        self.model = pickle.load(open(filename, "rb"))
 
     def check_message(self, msg: str):
         """
@@ -30,6 +30,7 @@ class BullyChecker(Checker):
         """
         Function to add profane words to a list and return the same
         """
+
         def getThreats(d):
             ret = []
             for x in sorted([(predicts_dict[k], k) for k in predicts_dict]):
