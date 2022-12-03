@@ -1,13 +1,13 @@
-import sys
 import os
-import discord
+import sys
 from pathlib import Path  # if you haven't already done so
-from dotenv import load_dotenv
+import discord
 import src.checkers.profanity
+from dotenv import load_dotenv
 from src.checkers.apology import ApologyChecker
+from src.checkers.bully import BullyChecker
 from src.checkers.reporter import ReportChecker
 from src.utils.msg import clean_message, get_msg_template, get_help_message
-from src.checkers.bully import BullyChecker
 
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
