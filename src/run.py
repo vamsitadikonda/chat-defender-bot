@@ -1,6 +1,13 @@
 import sys
+import os
+import discord
 from pathlib import Path  # if you haven't already done so
-import redis
+from dotenv import load_dotenv
+import src.checkers.profanity
+from src.checkers.apology import ApologyChecker
+from src.checkers.reporter import ReportChecker
+from src.utils.msg import clean_message, get_msg_template, get_help_message
+from src.checkers.bully import BullyChecker
 
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
@@ -11,15 +18,6 @@ try:
     sys.path.remove(str(parent))
 except ValueError:  # Already removed
     pass
-
-import os
-import discord
-from dotenv import load_dotenv
-import src.checkers.profanity
-from src.checkers.apology import ApologyChecker
-from src.checkers.reporter import ReportChecker
-from src.utils.msg import clean_message, get_msg_template, get_help_message
-from src.checkers.bully import BullyChecker
 
 intents = discord.Intents.default()
 intents.message_content = True
