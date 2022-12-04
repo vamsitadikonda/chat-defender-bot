@@ -2,6 +2,7 @@ discord.py
 python-dotenv~=0.21.0
 mysql-connector-python~=8.0.30
 nltk
+textblob
 detoxify~=0.5.0
 pytest
 redis
