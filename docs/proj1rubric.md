@@ -1,7 +1,7 @@
 |Notes|Score|evidence|
 |-----|---|---------|
 |Bonus: Xfold improvement	| | | 
-|Docs: what: point descriptions of each class/function (in isolation)	| | | |
+|Docs: what: point descriptions of each class/function (in isolation)	|3|https://www.vamsitadikonda.com/chat-defender-bot/|
 |Use of style checkers |3|Code Linting Integrated [GitHub Action](https://github.com/vishnuchalla/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
 |Use of code formatters. |3|Code Linting Integrated [GitHub Action](https://github.com/vishnuchalla/chat-defender-bot/blob/main/.github/workflows/black.yml)|
 |Use of syntax checkers. |3|Code Linting Integrated [GitHub Action](https://github.com/vishnuchalla/chat-defender-bot/blob/main/.github/workflows/python-app.yml)|
@@ -15,7 +15,6 @@ but nevertheless, here is a track record that everyone is contributing a lot)|||
 |Issues are being closed|3|[Issues Tab](https://github.com/vishnuchalla/chat-defender-bot/issues?q=is%3Aissue+is%3Aclosed)|
 |DOI badge: exists|3|In [README.md](https://github.com/vishnuchalla/chat-defender-bot/blob/main/README.md) [Zenodo](https://zenodo.org/record/7159312#.Y0OK6OzMK3I)|
 |Docs: doco generated, format not ugly ||[PDocs](https://www.vamsitadikonda.com/chat-defender-bot/)|
-|Docs: what: point descriptions of each class/function (in isolation) |
 |Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z||doc page entries|
 |Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing|
 |Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.|
