@@ -1,15 +1,12 @@
 from . import Checker
 import src.utils.db
-from nltk.sentiment import SentimentIntensityAnalyzer
-from nltk import download
+from textblob import TextBlob
 import operator
 
 class ApologyChecker(Checker):
     def __init__(self):
         self.conn = src.utils.db.DbConnector()
         self.conn.connect()
-        download("vader_lexicon")
-        self.sia = SentimentIntensityAnalyzer()
 
 
     def check_message(self, message):
@@ -18,7 +15,8 @@ class ApologyChecker(Checker):
         :param message: message string
         :return:True or False
         """
-        score = self.sia.polarity_scores(message)["compound"]  # classifying the text
+        score = TextBlob(message).sentiment.polarity  # classifying the text
+        print(score)
         sentiment = None
         if score > 0:
             sentiment = "pos"
@@ -27,9 +25,9 @@ class ApologyChecker(Checker):
         else:
             sentiment = "neu"
         
-        if sentiment == "neg":
+        if sentiment == "pos":
             return False
-        else:    # if the sentiment is neutral or positive and we find an apology we return True
+        else:    # if the sentiment is neutral or negative and we find an apology we return True
             return message.find("sorry") != -1 or message.find("my bad") != -1 or message.find("apology") != -1
 
     def check_user_for_warning(self, user_id, server_name):
