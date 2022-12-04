@@ -1,3 +1,4 @@
+#!/usr/bin/python
 class MockCursor:
     def execute(self, query, cond=""):
         print("mock execute query:{} cond={}".format(query, cond))
