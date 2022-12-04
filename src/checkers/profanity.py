@@ -1,13 +1,14 @@
+#!/usr/bin/python
 from src.checkers import Checker
 import src.utils.db
 import src.utils.redis
-
+from src.checkers import Checker
 
 class ProfanityChecker(Checker):
     def __init__(self):
         self.words = {}
         self.conn = src.utils.db.DbConnector()
-        self.query = "SELECT word FROM discorddb.pwords".encode('utf-8')
+        self.query = "SELECT word FROM discorddb.pwords".encode("utf-8")
         self.redis = src.utils.redis.Redis()
         self.conn.connect()
         self.conn.create_tables()
@@ -21,17 +22,23 @@ class ProfanityChecker(Checker):
             if not self.redis.check_key(self.query):
                 data = self.fetch_words(server)
                 self.redis.add_entry(self.query, data)
-            
-            if not self.redis.check_word(self.query, word): # check if word not present in cache
+
+            if not self.redis.check_word(
+                self.query, word
+            ):  # check if word not present in cache
                 cursor = self.conn.connector.cursor()
-                sql_query = "INSERT INTO discorddb.pwords (server_name, word) VALUES (%s,%s)" # adding a new entry in db
+                sql_query = "INSERT INTO discorddb.pwords (server_name, word) VALUES (%s,%s)"  # adding a new entry in db
                 val = (server, word)
                 cursor.execute(sql_query, val)
                 self.conn.connector.commit()
-                self.redis.add_word(self.query, word) # add the new word in the value set
+                self.redis.add_word(
+                    self.query, word
+                )  # add the new word in the value set
 
         except Exception as error:
-            print("Failed to insert record in MySQL table / Redis Cache: {}".format(error))
+            print(
+                "Failed to insert record in MySQL table / Redis Cache: {}".format(error)
+            )
         finally:
             cursor.close()
             return True
@@ -52,7 +59,6 @@ class ProfanityChecker(Checker):
         finally:
             cursor.close()
             return set(result)
-
 
     def check_word(self, word: str):
         """

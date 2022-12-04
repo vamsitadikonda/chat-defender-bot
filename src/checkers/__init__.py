@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """
 Checkers Module:
 This module contains all the checks that can be done after parsing a message.
