@@ -14,8 +14,9 @@ spec:
       containers:
       - name: redis
         image: redis:6.2-alpine
-        command: ["redis-server"]
-        args: ["--save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81"]
+        command: ["/bin/sh", "-c"]
+        args:
+          - redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81;
         ports:
         - containerPort: 6379
       restartPolicy: Always
