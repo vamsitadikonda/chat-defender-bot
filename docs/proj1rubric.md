@@ -64,14 +64,14 @@ but nevertheless, here is a track record that everyone is contributing a lot)|||
 |Is your source code stored in a repository under revision control|3|Github|
 |Is each source code release a snapshot of the repository|3|Yes|
 |Are releases tagged in the repository|3|[Releases](https://github.com/vamsitadikonda/chat-defender-bot/releases)|
-|Is there a branch of the repository that is always stable? (i.e. tests always pass, code always builds successfully)|3|[main](https://github.com/vamsitadikonda/chat-defender-bot/tree/main)|
+|Is there a branch of the repository that is always stable? (i.e. tests always pass, code always builds successfully)|3|[main](https://github.com/vishnuchalla/chat-defender-bot/tree/main)|
 |Do you back-up your repository|3|[Zenodo](https://zenodo.org/record/7159312#.Y0OK6OzMK3I)|
-|Do you provide publicly-available instructions for building your software from the source code|3|Install.md|
+|Do you provide publicly-available instructions for building your software from the source code|3|[[](https://github.com/vishnuchalla/chat-defender-bot/blob/main/INSTALL.md).md](https://github.com/vishnuchalla/chat-defender-bot/blob/main/INSTALL.md)|
 |Can you build, or package, your software using an automated tool. e.g. Make (https://www.gnu.org/software/make/), ANT (http://ant.apache.org/), Maven (https://maven.apache.org/), CMake (https://cmake.org/), Python setuptools (https://pypi.python.org/pypi/setuptools), or R package tools (https://cran.r-project.org/doc/manuals/r-devel/R-exts.html)|3|Yes|
-|Do you provide publicly-available instructions for deploying your software|3|Install.md|
+|Do you provide publicly-available instructions for deploying your software|3|https://github.com/vishnuchalla/chat-defender-bot/blob/main/INSTALL.md|
 |Does your documentation list all third-party dependencies|3|Yes|
 |Does your documentation list the version number for all third-party dependencies|3|Yes|
-|Does your software list the web address, and licences for all third-party dependencies and say whether the dependencies are mandatory or optional|3|Yes|Can you download dependencies using a dependency management tool or package manager. e.g. Ivy (http://ant.apache.org/ivy/), Maven (https://maven.apache.org/), Python pip (https://pypi.python.org/pypi/pip) or setuptools (https://pypi.python.org/pypi/setuptools), PHP Composer (https://getcomposer.org/), Ruby gems (https://rubygems.org), or R PackRat (https://rstudio.github.io/packrat/)|3|(https://github.com/vishnuchalla/chat-defender-bot/blob/main/requirements.txt)|
+|Does your software list the web address, and licenses for all third-party dependencies and say whether the dependencies are mandatory or optional|3|Yes|Can you download dependencies using a dependency management tool or package manager. e.g. Ivy (http://ant.apache.org/ivy/), Maven (https://maven.apache.org/), Python pip (https://pypi.python.org/pypi/pip) or setuptools (https://pypi.python.org/pypi/setuptools), PHP Composer (https://getcomposer.org/), Ruby gems (https://rubygems.org), or R PackRat (https://rstudio.github.io/packrat/)|3|(https://github.com/vishnuchalla/chat-defender-bot/blob/main/requirements.txt)|
 |Do you have tests that can be run after your software has been built or deployed to show whether the build or deployment has been successful|3|(https://github.com/vishnuchalla/chat-defender-bot/tree/main/tests)|
 |Do you have an automated test suite for your software|3|(https://github.com/vishnuchalla/chat-defender-bot/tree/main/tests)|
 |Do you have a framework to periodically (e.g. nightly) run your tests on the latest version of the source code|3|(https://github.com/vishnuchalla/chat-defender-bot/tree/main/tests)|
