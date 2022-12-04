@@ -88,15 +88,15 @@ but nevertheless, here is a track record that everyone is contributing a lot)|||
 |If your software is developed as an open source project (and, not just a project developing open source software), do you have a governance model|0|NA|
 |Do you accept contributions (e.g. bug fixes, enhancements, documentation updates, tutorials) from people who are not part of your project|0|Only with granted permiasion the contributions can be done|
 |Do you have a contributions policy|3|(https://github.com/vamsitadikonda/chat-defender-bot/blob/main/CONTRIBUTING.md)|
-|Is your contributions' policy publicly available|3|(https://github.com/vamsitadikonda/chat-defender-bot/blob/main/CONTRIBUTING.md)|
+|Is your contributions' policy publicly available|3|(https://github.com/vishnuchalla/chat-defender-bot/blob/main/CONTRIBUTING.md)|
 |Do contributors keep the copyright/IP of their contributions|0|NA|
 |Does your website and documentation clearly state the copyright owners of your software and documentation|0|NA|
 |Does each of your source code files include a copyright statement|0|NA|
-|Does your website and documentation clearly state the licence of your software|3|[licence](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/LICENSE)|
-|Is your software released under an open source licence|3|[licence](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/LICENSE)|
-|Is your software released under an OSI-approved open-source licence|3|[licence](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/LICENSE)|
+|Does your website and documentation clearly state the licence of your software|3|[licence](https://github.com/vishnuchalla/chat-defender-bot/blob/main/LICENSE)|
+|Is your software released under an open source licence|3|[licence](https://github.com/vishnuchalla/chat-defender-bot/blob/main/LICENSE)|
+|Is your software released under an OSI-approved open-source licence|3|[licence](https://github.com/vishnuchalla/chat-defender-bot/blob/main/LICENSE)|
 |Does each of your source code files include a licence header|0|NA|
-|Do you have a recommended citation for your software|3|[citation.md](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/CITATION.md)|
+|Do you have a recommended citation for your software|3|[citation.md](https://github.com/vishnuchalla/chat-defender-bot/blob/main/CITATION.md)|
 |Does your website or documentation include a project roadmap (a list of project and development milestones for the next 3, 6 and 12 months)|3|[future scope](https://github.com/vishnuchalla/chat-defender-bot#readme)|
 |Does your website or documentation describe how your project is funded, and the period over which funding is guaranteed|0|NA|
 |Do you make timely announcements of the deprecation of components, APIs, etc.|0|NA|
