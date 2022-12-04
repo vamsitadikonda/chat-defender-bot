@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import mock
 from src.utils.db import DbConnector
 from tests.testutils import *

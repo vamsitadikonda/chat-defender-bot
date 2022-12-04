@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import mock
 from src.checkers.reporter import ReportChecker
 from tests.testutils import *

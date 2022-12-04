@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from . import Checker
 import os
 import pickle

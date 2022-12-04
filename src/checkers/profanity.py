@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from src.checkers import Checker
 import src.utils.db
 import src.utils.redis

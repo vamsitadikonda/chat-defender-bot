@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from . import Checker
 import src.utils.db
 from nltk.sentiment import SentimentIntensityAnalyzer
