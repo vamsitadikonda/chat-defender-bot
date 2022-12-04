@@ -10,4 +10,5 @@ class TestBullyChecker:
     def test_check_message(self):
         bc = BullyChecker()
         assert len(bc.check_message("Rot in Hell")) > 0
+        assert len(bc.check_message("You are a Pig woman!")) > 0
         assert len(bc.check_message("How are you?")) == 0

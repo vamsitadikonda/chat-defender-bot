@@ -33,4 +33,3 @@ class MockConnector:
     def close(self):
         print("Closing Mock Connector")
         return True
-
