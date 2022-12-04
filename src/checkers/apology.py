@@ -1,9 +1,10 @@
 #!/usr/bin/python
 from . import Checker
 import src.utils.db
-from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk import download
-import operator
+from nltk.sentiment import SentimentIntensityAnalyzer
+from . import Checker
+
 
 class ApologyChecker(Checker):
     def __init__(self):
@@ -12,14 +13,14 @@ class ApologyChecker(Checker):
         download("vader_lexicon")
         self.sia = SentimentIntensityAnalyzer()
 
-
     def check_message(self, message):
         """
         Just checks for Sorry message
         :param message: message string
         :return:True or False
         """
-        score = self.sia.polarity_scores(message)["compound"]  # classifying the text
+        # classifying the text
+        score = self.sia.polarity_scores(message)["compound"]  
         sentiment = None
         if score > 0:
             sentiment = "pos"
@@ -27,29 +28,34 @@ class ApologyChecker(Checker):
             sentiment = "neg"
         else:
             sentiment = "neu"
-        
+
         if sentiment == "neg":
             return False
-        else:    # if the sentiment is neutral or positive and we find an apology we return True
-            return message.find("sorry") != -1 or message.find("my bad") != -1 or message.find("apology") != -1
+        else:  
+            # if sentiment is neutral or + & we find an apology we return True
+            return (
+                message.find("sorry") != -1
+                or message.find("my bad") != -1
+                or message.find("apology") != -1
+            )
 
     def check_user_for_warning(self, user_id, server_name):
         """
-        Function to check whether a user has any outstanding warnings
+        Function to check whether a user has any outstanding warnings or not
         """
+        
         try:
             self.add_user(user_id, server_name)
-            out = 0
             cursor = self.conn.connector.cursor()
             sql_query = "SELECT offense_count - apology_count FROM discorddb.user_activity WHERE user_id = %s AND server_name = %s"
             cursor.execute(sql_query, (user_id, server_name))
             result = cursor.fetchone()
-            out = result[0]
+            out_count = result[0]
         except Exception as error:
             print("Failed to get record from MySQL table: {}".format(error))
         finally:
             cursor.close()
-            if out > 0:
+            if out_count > 0:
                 print("Offenses more than expected. Banning User")
                 self.ban_user(user_id, server_name, 1)
                 return False
@@ -93,7 +99,9 @@ class ApologyChecker(Checker):
                 print("User is added into the channel")
             else:
                 if result[0] == 1:
-                    print("User is banned from this server. Can't insert into the channel")
+                    print(
+                        "User is banned from this server. Can't insert into the channel"
+                    )
 
         except Exception as error:
             print("Failed to get record from MySQL table: {}".format(error))
