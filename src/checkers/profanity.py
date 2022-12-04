@@ -1,7 +1,6 @@
-from src.checkers import Checker
 import src.utils.db
 import src.utils.redis
-
+from src.checkers import Checker
 
 class ProfanityChecker(Checker):
     def __init__(self):

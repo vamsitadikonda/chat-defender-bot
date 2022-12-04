@@ -1,7 +1,5 @@
-import mock
 from src.checkers.reporter import ReportChecker
 from tests.testutils import *
-
 
 def setup_module(module):
     from dotenv import load_dotenv

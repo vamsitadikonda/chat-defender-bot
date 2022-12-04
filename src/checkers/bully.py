@@ -1,7 +1,6 @@
-from . import Checker
 import os
 import pickle
-
+from . import Checker
 
 class BullyChecker(Checker):
     def __init__(self):

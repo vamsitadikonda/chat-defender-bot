@@ -1,8 +1,7 @@
-from . import Checker
 import src.utils.db
-from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk import download
-import operator
+from nltk.sentiment import SentimentIntensityAnalyzer
+from . import Checker
 
 
 class ApologyChecker(Checker):
@@ -18,7 +17,8 @@ class ApologyChecker(Checker):
         :param message: message string
         :return:True or False
         """
-        score = self.sia.polarity_scores(message)["compound"]  # classifying the text
+        # classifying the text
+        score = self.sia.polarity_scores(message)["compound"]  
         sentiment = None
         if score > 0:
             sentiment = "pos"
@@ -29,7 +29,8 @@ class ApologyChecker(Checker):
 
         if sentiment == "neg":
             return False
-        else:  # if the sentiment is neutral or positive and we find an apology we return True
+        else:  
+            # if sentiment is neutral or + & we find an apology we return True
             return (
                 message.find("sorry") != -1
                 or message.find("my bad") != -1
@@ -40,9 +41,9 @@ class ApologyChecker(Checker):
         """
         Function to check whether a user has any outstanding warnings or not
         """
+        
         try:
             self.add_user(user_id, server_name)
-            out_count = 0
             cursor = self.conn.connector.cursor()
             sql_query = "SELECT offense_count - apology_count FROM discorddb.user_activity WHERE user_id = %s AND server_name = %s"
             cursor.execute(sql_query, (user_id, server_name))

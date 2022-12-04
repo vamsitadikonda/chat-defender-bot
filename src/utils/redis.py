@@ -1,7 +1,7 @@
-import redis
+import hashlib
 import os
 import pickle
-import hashlib
+import redis
 
 
 class Redis:

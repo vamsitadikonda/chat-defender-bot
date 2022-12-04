@@ -1,3 +1,4 @@
+Bully_README
 The bully checker evaluates if the comments are abusive or not.
 Toxicities include: toxic, severe_toxic, obscene, threat, insult, identity_hate
 

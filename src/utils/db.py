@@ -1,5 +1,6 @@
 import os
 import time
+
 import mysql.connector
 
 
@@ -72,8 +73,8 @@ class DbConnector:
         Function to get data from query in the database
         :return:
         """
+        data = None
         try:
-            data = None
             cursor = self.connector.cursor()
             cursor.execute(query, cond)
             data = cursor.fetchall()
