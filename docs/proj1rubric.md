@@ -97,6 +97,6 @@ but nevertheless, here is a track record that everyone is contributing a lot)|||
 |Is your software released under an OSI-approved open-source licence|3|[licence](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/LICENSE)|
 |Does each of your source code files include a licence header|0|NA|
 |Do you have a recommended citation for your software|3|[citation.md](https://github.com/vamsitadikonda/chat-defender-bot/blob/main/CITATION.md)|
-|Does your website or documentation include a project roadmap (a list of project and development milestones for the next 3, 6 and 12 months)|3|[future scope](https://github.com/vamsitadikonda/chat-defender-bot#readme)|
+|Does your website or documentation include a project roadmap (a list of project and development milestones for the next 3, 6 and 12 months)|3|[future scope](https://github.com/vishnuchalla/chat-defender-bot#readme)|
 |Does your website or documentation describe how your project is funded, and the period over which funding is guaranteed|0|NA|
 |Do you make timely announcements of the deprecation of components, APIs, etc.|0|NA|
