@@ -74,28 +74,28 @@ but nevertheless, here is a track record that everyone is contributing a lot)|||
 |Does your software list the web address, and licences for all third-party dependencies and say whether the dependencies are mandatory or optional|3|Yes|Can you download dependencies using a dependency management tool or package manager. e.g. Ivy (http://ant.apache.org/ivy/), Maven (https://maven.apache.org/), Python pip (https://pypi.python.org/pypi/pip) or setuptools (https://pypi.python.org/pypi/setuptools), PHP Composer (https://getcomposer.org/), Ruby gems (https://rubygems.org), or R PackRat (https://rstudio.github.io/packrat/)|3|(https://github.com/vamsitadikonda/chat-defender-bot/blob/main/requirements.txt)|
 |Do you have tests that can be run after your software has been built or deployed to show whether the build or deployment has been successful|3|(https://github.com/vamsitadikonda/chat-defender-bot/tree/main/tests)|
 |Do you have an automated test suite for your software|3|(https://github.com/vamsitadikonda/chat-defender-bot/tree/main/tests)|
-|Do you have a framework to periodically (e.g. nightly) run your tests on the latest version of the source code|3|(https://github.com/vamsitadikonda/chat-defender-bot/tree/main/tests)|
-|Do you use continuous integration, automatically running tests whenever changes are made to your source code|3|yes|
-|Are your test results publicly visible|3|(https://github.com/vamsitadikonda/chat-defender-bot#video)|
+|Do you have a framework to periodically (e.g. nightly) run your tests on the latest version of the source code|3|(https://github.com/vishnuchalla/chat-defender-bot/tree/main/tests)|
+|Do you use continuous integration, automatically running tests whenever changes are made to your source code|3|https://github.com/vishnuchalla/chat-defender-bot/actions|
+|Are your test results publicly visible|3|(https://github.com/vishnuchalla/chat-defender-bot#video)|
 |Are all manually-run tests documented|0|NA|
 |Does your project have resources (e.g. blog, Twitter, RSS feed, Facebook page, wiki, mailing list) that are regularly updated with information about your software. e.g. release announcements, publications, workshops, conference presentations|0|NA|
-|Does your website state how many projects and users are associated with your project|3|(https://github.com/vamsitadikonda/chat-defender-bot)|
-|Do you provide success stories on your website|3|(https://github.com/vamsitadikonda/chat-defender-bot#video)|
-|Do you list your important partners and collaborators on your website||(3https://github.com/vamsitadikonda/chat-defender-bot/graphs/contributors)|
+|Does your website state how many projects and users are associated with your project|3|(https://github.com/vishnuchalla/chat-defender-bot)|
+|Do you provide success stories on your website|3|(https://github.com/vishnuchalla/chat-defender-bot#video)|
+|Do you list your important partners and collaborators on your website|3|(https://github.com/vishnuchalla/chat-defender-bot/graphs/contributors)|
 |Do you list your project's publications on your website or link to a resource where these are available|0|NA|
 |Do you list third-party publications that refer to your software on your website or link to a resource where these are available|0|NA|
 |Can users subscribe to notifications to changes to your source code repository|0|NA|
 |If your software is developed as an open source project (and, not just a project developing open source software), do you have a governance model|0|NA|
-|Do you accept contributions (e.g. bug fixes, enhancements, documentation updates, tutorials) from people who are not part of your project|0|Only with granted permiasion the contributions can be done|
-|Do you have a contributions policy|3|(https://github.com/vamsitadikonda/chat-defender-bot/blob/main/CONTRIBUTING.md)|
+|Do you accept contributions (e.g. bug fixes, enhancements, documentation updates, tutorials) from people who are not part of your project|0|Only with granted permissions the contributions can be done|
+|Do you have a contributions policy|3|(https://github.com/vishnuchalla/chat-defender-bot/blob/main/CONTRIBUTING.md)|
 |Is your contributions' policy publicly available|3|(https://github.com/vishnuchalla/chat-defender-bot/blob/main/CONTRIBUTING.md)|
 |Do contributors keep the copyright/IP of their contributions|0|NA|
 |Does your website and documentation clearly state the copyright owners of your software and documentation|0|NA|
 |Does each of your source code files include a copyright statement|0|NA|
-|Does your website and documentation clearly state the licence of your software|3|[licence](https://github.com/vishnuchalla/chat-defender-bot/blob/main/LICENSE)|
-|Is your software released under an open source licence|3|[licence](https://github.com/vishnuchalla/chat-defender-bot/blob/main/LICENSE)|
-|Is your software released under an OSI-approved open-source licence|3|[licence](https://github.com/vishnuchalla/chat-defender-bot/blob/main/LICENSE)|
-|Does each of your source code files include a licence header|0|NA|
+|Does your website and documentation clearly state the license of your software|3|[license](https://github.com/vishnuchalla/chat-defender-bot/blob/main/LICENSE)|
+|Is your software released under an open source license|3|[license](https://github.com/vishnuchalla/chat-defender-bot/blob/main/LICENSE)|
+|Is your software released under an OSI-approved open-source license|3|[license](https://github.com/vishnuchalla/chat-defender-bot/blob/main/LICENSE)|
+|Does each of your source code files include a license header|0|NA|
 |Do you have a recommended citation for your software|3|[citation.md](https://github.com/vishnuchalla/chat-defender-bot/blob/main/CITATION.md)|
 |Does your website or documentation include a project roadmap (a list of project and development milestones for the next 3, 6 and 12 months)|3|[future scope](https://github.com/vishnuchalla/chat-defender-bot#readme)|
 |Does your website or documentation describe how your project is funded, and the period over which funding is guaranteed|0|NA|
