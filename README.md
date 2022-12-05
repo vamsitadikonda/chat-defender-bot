@@ -41,7 +41,7 @@ https://drive.google.com/file/d/1LNjVeSV_3JWVeWB_Lr11941LlmDSVAg8/view?usp=shari
 <img src="https://drive.google.com/uc?export=view&id=17444V8CAig18_kQ9gQHY1ZX1JXObFMoz" alt="Docker" width="20" height="20"/> Docker </br>
 <img src="https://github.com/Spartee/redis-vector-search/blob/master/app/vecsim_app/data/redis-logo.png?raw=true" alt="Redis" width="20" height="20"> Redis </br>
 
-Check out our code documentation [here](https://www.vamsitadikonda.com/chat-defender-bot) 
+Check out our code documentation [here](https://sumanthbsundar.github.io/discord_chat_bot_doc/) 
 
 :sparkles: Contributors
 ---
