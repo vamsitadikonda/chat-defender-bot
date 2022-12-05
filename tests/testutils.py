@@ -1,3 +1,4 @@
+#!/usr/bin/python
 class MockCursor:
     def execute(self, query, cond=""):
         print("mock execute query:{} cond={}".format(query, cond))
@@ -32,4 +33,3 @@ class MockConnector:
     def close(self):
         print("Closing Mock Connector")
         return True
-

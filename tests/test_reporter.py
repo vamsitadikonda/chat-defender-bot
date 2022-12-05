@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import mock
 from src.checkers.reporter import ReportChecker
 from tests.testutils import *
@@ -5,6 +6,7 @@ from tests.testutils import *
 
 def setup_module(module):
     from dotenv import load_dotenv
+
     load_dotenv("bot.env")
 
 
@@ -17,5 +19,5 @@ class TestReportChecker:
 
     def test_parse_message(self):
         rc = ReportChecker()
-        assert rc.parse_message("!report word Aang") == ('word','Aang')
-        assert rc.parse_message("!report word Aang 123") == ('word','Aang')
+        assert rc.parse_message("!report word Aang") == ("word", "Aang")
+        assert rc.parse_message("!report word Aang 123") == ("word", "Aang")

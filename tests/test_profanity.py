@@ -1,3 +1,4 @@
+#!/usr/bin/python
 class TestProfanityChecker:
     def test_add_words(self):
         assert True

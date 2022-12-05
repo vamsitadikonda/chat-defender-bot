@@ -1,6 +1,6 @@
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [vamsitadikonda99@gmail.com](mailto:vamsitadikonda99@gmail.com).
+This project and everyone participating in it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [kprawat@ncsu.edu](mailto:kprawat@ncsu.edu).
 
 ## Pull Request Process
 
