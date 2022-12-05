@@ -4,6 +4,7 @@ import src.utils.db
 from textblob import TextBlob
 import operator
 
+
 class ApologyChecker(Checker):
     def __init__(self):
         self.conn = src.utils.db.DbConnector()
@@ -29,15 +30,18 @@ class ApologyChecker(Checker):
 
         if sentiment == "pos":
             return False
-        else:    # if the sentiment is neutral or negative and we find an apology we return True
-            return message.find("sorry") != -1 or message.find("my bad") != -1 or message.find("apology") != -1
-
+        else:  # if the sentiment is neutral or negative and we find an apology we return True
+            return (
+                message.find("sorry") != -1
+                or message.find("my bad") != -1
+                or message.find("apology") != -1
+            )
 
     def check_user_for_warning(self, user_id, server_name):
         """
         Function to check whether a user has any outstanding warnings or not
         """
-        
+
         try:
             self.add_user(user_id, server_name)
             cursor = self.conn.connector.cursor()
