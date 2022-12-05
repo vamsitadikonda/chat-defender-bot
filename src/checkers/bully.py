@@ -4,6 +4,7 @@ import os
 import pickle
 from . import Checker
 
+
 class BullyChecker(Checker):
     def __init__(self):
         self.use_gpu = bool(os.getenv("USE_GPU", False))
