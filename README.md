@@ -15,7 +15,6 @@
 [![pull-requests-closed](https://img.shields.io/github/issues-pr-closed/vamsitadikonda/chat-defender-bot?color=green)](https://github.com/vamsitadikonda/chat-defender-botpulls?q=is%3Apr+is%3Aclosed)
 [![languages](https://img.shields.io/github/languages/count/vamsitadikonda/chat-defender-bot)](https://github.com/vamsitadikonda/chat-defender-bot)
 [![forks](https://img.shields.io/github/forks/vamsitadikonda/chat-defender-bot?style=social)](https://github.com/vamsitadikonda/chat-defender-bot/network/members)
-[![GitHub Super-Linter](https://github.com/nvuillam/npm-groovy-lint/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 ## About
 Chat-Defender-bot : A Discord Bot to prevent cyberbullying and hate speech in chatrooms.
