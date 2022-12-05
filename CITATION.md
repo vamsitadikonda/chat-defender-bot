@@ -4,10 +4,10 @@ Version: 1.0.0
 
 Authors:
   
-Bharath Katabathuni
-Bapiraju Vamsi Tadikonda
-Vinay Kumar Reddy Perolla
-Sai Sree Nalluru
-Swimitha Reddy Buchannolla  
+Srujan Ponnur
+Sumanth Somasundar
+Vishnu Challa
+Sairam Sakhamuri
+Kanchan Rawat
 
 License: BSD 2 Clause License.
